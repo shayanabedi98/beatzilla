@@ -13,9 +13,9 @@ const config: Config = {
 
         secondary: "#3D3D3D",
 
-        accent: "#ee0000",
+        accent: "#808080",
 
-        neutral: "#1f2319",
+        neutral: "#808080",
 
         "base-100": "#292929",
 
@@ -29,6 +29,31 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#f0f0f0",
+
+          secondary: "#3D3D3D",
+
+          accent: "#808080",
+
+          neutral: "#1f2319",
+
+          "base-100": "#292929",
+
+          info: "#008db6",
+
+          success: "#9cc400",
+
+          warning: "#ffad00",
+
+          error: "#ff2a63",
+        },
+      },
+    ],
+  },
+  plugins: [require("daisyui")],
 };
 export default config;

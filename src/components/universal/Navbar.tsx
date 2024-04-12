@@ -1,26 +1,30 @@
-"use-client";
+"use client";
 
 import NavbarItemDesktop from "./NavbarItemDesktop";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseOutline } from "react-icons/io5";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <header className="flex items-center justify-between py-2">
+    <nav className="flex items-center justify-between px-24 py-2">
       <div>
-        <Image
-          src={logo}
-          alt="Text that says Beat Zilla, with a silhouette of Godzilla behind it."
-          className="w-56"
-        />
+        <Link href="/">
+          <Image
+            priority
+            src={logo}
+            alt="Text that says Beat Zilla, with a silhouette of Godzilla behind it."
+            className="w-56"
+          />
+        </Link>
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-8">
         <NavbarItemDesktop content="Home" location="/" />
         <NavbarItemDesktop content="Beats" location="/beats" />
         <NavbarItemDesktop content="Contact" location="/Contact" />
       </div>
-    </header>
+    </nav>
   );
 }
