@@ -1,4 +1,4 @@
-const beats = [
+export const beats = [
   { title: "Beat 1", path: "/audio/beat1.mp3", cover: "/audio/audiobg.png" },
   { title: "Beat 2", path: "/audio/beat2.mp3", cover: "/audio/audiobg.png" },
   { title: "Beat 3", path: "/audio/beat3.mp3", cover: "/audio/audiobg.png" },
