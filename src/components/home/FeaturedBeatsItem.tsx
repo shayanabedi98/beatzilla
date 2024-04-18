@@ -1,17 +1,26 @@
 import Image from "next/image";
-import audioBg from "@/../public/audio/audiobg.png"
+import { FaRegPlayCircle } from "react-icons/fa";
 
 type Props = {
-    title: string
-    audio: string
-}
+  title: string;
+  songCover: string;
+  audioFile: string;
+  handleClick: (str: string, songCover: string, title: string) => void;
+};
 
-export default function FeaturedBeatsItem({ title, audio }: Props) {
-    return (
-        <div className="flex flex-col items-center gap-4 text-primary bg-secondary rounded-lg p-4">
-            <Image className="w-24" src={audioBg} alt=""/>
-            <h3 className="text-3xl">{title}</h3>
-            <audio className="w-56" controls src={audio}>Your browser does not support this audio format</audio>
-        </div>
-    )
+export default function FeaturedBeatsItems({
+  songCover,
+  title,
+  handleClick,
+  audioFile,
+}: Props) {
+  return (
+    <div>
+      <Image width={100} height={100} src={songCover} alt="" />
+      <p>{title}</p>
+      <div>
+        <FaRegPlayCircle onClick={() => handleClick(audioFile, title, songCover)} />
+      </div>
+    </div>
+  );
 }
