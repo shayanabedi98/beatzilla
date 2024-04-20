@@ -16,7 +16,7 @@ export default function Navbar() {
             priority
             src={logo}
             alt="Text that says Beat Zilla, with a silhouette of Godzilla behind it."
-            className="w-56"
+            className="w-32"
           />
         </Link>
       </div>

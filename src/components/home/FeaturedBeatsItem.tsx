@@ -6,6 +6,8 @@ type Props = {
   songCover: string;
   audioFile: string;
   handleClick: (str: string, songCover: string, title: string) => void;
+  genre: string[];
+  bpm: number;
 };
 
 export default function FeaturedBeatsItems({
@@ -13,13 +15,25 @@ export default function FeaturedBeatsItems({
   title,
   handleClick,
   audioFile,
+  bpm,
+  genre,
 }: Props) {
   return (
-    <div>
+    <div className="flex w-full items-center justify-between text-primary">
       <Image width={100} height={100} src={songCover} alt="" />
-      <p>{title}</p>
-      <div>
-        <FaRegPlayCircle onClick={() => handleClick(audioFile, title, songCover)} />
+      <div className="grid grid-cols-3 place-items-center w-2/3">
+        <p className="text-2xl place-self-start">{title}</p>
+        <p>{bpm} bpm</p>
+        <div>
+          {genre.map((i, index) => (
+            <p key={index}>{i}</p>
+          ))}
+        </div>
+      </div>
+      <div className="text-3xl cursor-pointer">
+        <FaRegPlayCircle
+          onClick={() => handleClick(audioFile, title, songCover)}
+        />
       </div>
     </div>
   );

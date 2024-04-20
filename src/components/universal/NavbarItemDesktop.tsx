@@ -15,8 +15,8 @@ export default function NavbarItemDesktop({ content, location }: Props) {
     <Link
       className={
         pathname == location
-          ? "flex h-9 w-24 items-center justify-center rounded-lg bg-neutral text-xl font-semibold text-primary"
-          : "flex h-9 w-24 items-center justify-center rounded-lg text-xl font-semibold"
+          ? "flex h-8 w-20 items-center justify-center rounded-lg bg-neutral text-lg font-semibold text-primary"
+          : "flex h-8 w-20 items-center justify-center rounded-lg text-lg font-semibold"
       }
       href={location}
     >

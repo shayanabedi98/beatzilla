@@ -1,9 +1,10 @@
 "use client";
 
 import FeaturedBeatsItems from "./FeaturedBeatsItem";
-import { beats } from "../universal/beatsList";
+import { featuredBeats } from "../universal/featuredBeatsList";
 import { useState } from "react";
 import AudioPlayer from "../universal/AudioPlayer";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function FeaturedBeats() {
   const [audioFile, setAudioFile] = useState<string | null>(null);
@@ -16,36 +17,53 @@ export default function FeaturedBeats() {
     setTitle(title);
   };
 
+  const closeAudioPlayer = () => {
+    setAudioFile(null);
+    setSongCover(null);
+    setTitle(null);
+  };
+
   return (
-    <div className="my-44 flex flex-col items-center">
-      <h2 className="text-4xl font-semibold">Featured Beats</h2>
-      <div className="mt-20 flex items-center justify-center gap-10">
-        <FeaturedBeatsItems
-          handleClick={handleAudio}
-          title={beats[1].title}
-          audioFile={beats[1].path}
-          songCover={beats[1].cover}
-        />
-        <FeaturedBeatsItems
-          handleClick={handleAudio}
-          title={beats[4].title}
-          audioFile={beats[4].path}
-          songCover={beats[4].cover}
-        />
-        <FeaturedBeatsItems
-          handleClick={handleAudio}
-          title={beats[6].title}
-          audioFile={beats[6].path}
-          songCover={beats[6].cover}
-        />
+    <div className="mx-auto my-44 flex w-1/2 flex-col items-center">
+      <h2 className="mb-10 text-4xl font-semibold">Featured Beats</h2>
+      <h3 className="mb-10 text-center text-2xl">
+        Listen to a carefully curated list of instrumentals produced by{" "}
+        <span className="font-bold">Shayan Abedi</span>, which rely heavily on
+        the sound of Hip Hop.
+      </h3>
+      <div className="flex w-full flex-col items-center justify-center rounded-md bg-secondary shadow-lg">
+        {featuredBeats.map((item, index) => (
+          <div
+            key={index}
+            className={
+              index % 2 === 0
+                ? "w-full bg-base-100 px-8 py-4 shadow-lg"
+                : "w-full bg-secondary px-8 py-4"
+            }
+          >
+            <FeaturedBeatsItems
+              handleClick={handleAudio}
+              title={item.title}
+              audioFile={item.path}
+              songCover={item.cover}
+              bpm={item.bpm}
+              genre={item.genre}
+            />
+          </div>
+        ))}
       </div>
-      {audioFile && songCover && title && (
-        <AudioPlayer
-          title={title}
-          songCover={songCover}
-          audioFile={audioFile}
-        />
-      )}
+      <AnimatePresence>
+        {audioFile && songCover && title && (
+          <motion.div className="fixed" initial={{bottom: -300, left: 0}} animate={{bottom:0}} exit={{bottom: -300}}>
+            <AudioPlayer
+              title={title}
+              songCover={songCover}
+              audioFile={audioFile}
+              closeAudioPlayer={closeAudioPlayer}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -7,17 +7,24 @@ import { FaRegStopCircle } from "react-icons/fa";
 import { FaVolumeDown } from "react-icons/fa";
 import { FaVolumeMute } from "react-icons/fa";
 import { BsFillRewindFill } from "react-icons/bs";
+import { IoMdClose } from "react-icons/io";
 
 type Props = {
   title: string;
   songCover: string;
   audioFile: string;
+  closeAudioPlayer: () => void;
 };
 
-export default function AudioPlayer({ title, songCover, audioFile }: Props) {
+export default function AudioPlayer({
+  title,
+  songCover,
+  audioFile,
+  closeAudioPlayer,
+}: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [songTime, setSongTime] = useState<undefined | number>();
+  const [songTime, setSongTime] = useState<undefined | number>(0);
   const [songVolume, setSongVolume] = useState<number>(0.3);
   const [seconds, setSeconds] = useState(0);
   const [minute, setMinute] = useState(0);
@@ -81,8 +88,8 @@ export default function AudioPlayer({ title, songCover, audioFile }: Props) {
   };
 
   return (
-    <div className="audio-player fixed bottom-0 flex w-full items-center justify-center gap-44 bg-base-100 p-4 text-primary">
-      <div className="flex items-center gap-3">
+    <div className="audio-player grid w-full grid-cols-3 place-items-center gap-44 bg-base-100 p-4 text-primary">
+      <div className="flex w-[55%] items-center gap-3">
         <Image width={75} height={75} src={songCover} alt="" />
         <span className="text-xl">{title}</span>
       </div>
@@ -122,10 +129,13 @@ export default function AudioPlayer({ title, songCover, audioFile }: Props) {
             onChange={changeTime}
           />
           <p className="w-14 text-center">
-            {audioRef.current
+            {audioRef.current?.duration
               ? Number(audioRef.current?.duration.toFixed(0)) < 60 && 0
-              : "0"}
-            :{audioRef.current?.duration.toFixed(0)}
+              : 0}
+            :
+            {audioRef.current?.duration
+              ? audioRef.current?.duration.toFixed(0)
+              : "00"}
           </p>
         </div>
       </div>
@@ -145,6 +155,9 @@ export default function AudioPlayer({ title, songCover, audioFile }: Props) {
           max="100"
           onChange={changeVolume}
         />
+      </div>
+      <div className="absolute right-3 top-3 cursor-pointer text-2xl">
+        <IoMdClose onClick={closeAudioPlayer} />
       </div>
     </div>
   );
