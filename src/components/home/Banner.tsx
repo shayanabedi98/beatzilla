@@ -1,5 +1,6 @@
 import Image from "next/image";
-import banner from "@/assets/home/banner.jpg";
+import banner from "@/assets/home/banner.webp";
+import Link from "next/link";
 
 export default function Banner() {
   return (
@@ -14,9 +15,11 @@ export default function Banner() {
         <h1 className="text-6xl font-bold text-primary">
           Discover Raw Instrumentals
         </h1>
-        <button className="h-14 w-44 rounded-lg bg-primary text-xl font-bold text-secondary transition duration-100 hover:bg-secondary hover:text-primary">
-          Listen
-        </button>
+        <Link href="/beats">
+          <button className="call-to-action">
+            Listen
+          </button>
+        </Link>
       </div>
     </header>
   );

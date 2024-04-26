@@ -24,8 +24,8 @@ export default function FeaturedBeats() {
   };
 
   return (
-    <div className="mx-auto my-44 flex w-1/2 flex-col items-center">
-      <h2 className="mb-10 text-4xl font-semibold">Featured Beats</h2>
+    <div className="container mx-auto w-1/2">
+      <h2 className="container-header">Featured Beats</h2>
       <h3 className="mb-10 text-center text-2xl">
         Listen to a carefully curated list of instrumentals produced by{" "}
         <span className="font-bold">Shayan Abedi</span>, which rely heavily on
@@ -54,7 +54,7 @@ export default function FeaturedBeats() {
       </div>
       <AnimatePresence>
         {audioFile && songCover && title && (
-          <motion.div className="fixed" initial={{bottom: -300, left: 0}} animate={{bottom:0}} exit={{bottom: -300}}>
+          <motion.div className="fixed z-10" initial={{bottom: -300, left: 0}} animate={{bottom:0}} exit={{bottom: -300}}>
             <AudioPlayer
               title={title}
               songCover={songCover}
