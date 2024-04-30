@@ -3,7 +3,7 @@ import studio from "@/assets/home/studioequipment.webp";
 import logo from "@/assets/logo.png";
 import Link from "next/link";
 
-export default function About() {
+export default function AboutBeatZilla() {
   return (
     <div className="container w-2/3">
       <h2 className="container-header">About BeatZilla</h2>

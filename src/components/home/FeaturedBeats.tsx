@@ -4,7 +4,8 @@ import FeaturedBeatsItems from "./FeaturedBeatsItem";
 import { featuredBeats } from "../universal/featuredBeatsList";
 import { useState } from "react";
 import AudioPlayer from "../universal/AudioPlayer";
-import { motion, AnimatePresence } from "framer-motion";
+// import { motion, AnimatePresence } from "framer-motion";
+// import defaultCover from "@/../public/cover/default.png";
 
 export default function FeaturedBeats() {
   const [audioFile, setAudioFile] = useState<string | null>(null);
@@ -52,18 +53,27 @@ export default function FeaturedBeats() {
           </div>
         ))}
       </div>
-      <AnimatePresence>
-        {audioFile && songCover && title && (
-          <motion.div className="fixed z-10" initial={{bottom: -300, left: 0}} animate={{bottom:0}} exit={{bottom: -300}}>
-            <AudioPlayer
-              title={title}
-              songCover={songCover}
-              audioFile={audioFile}
-              closeAudioPlayer={closeAudioPlayer}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {audioFile && songCover && title ? (
+        <div className="fixed bottom-0 z-10">
+          <AudioPlayer
+            title={title}
+            songCover={songCover}
+            audioFile={audioFile}
+            closeAudioPlayer={closeAudioPlayer}
+            emptyFile={true}
+          />
+        </div>
+      ) : (
+        <div className="fixed bottom-0 z-10">
+          <AudioPlayer
+            title="Pick a beat"
+            songCover="/cover/default.png"
+            audioFile=""
+            closeAudioPlayer={closeAudioPlayer}
+            emptyFile={false}
+          />
+        </div>
+      )}
     </div>
   );
 }

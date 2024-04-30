@@ -14,6 +14,7 @@ type Props = {
   songCover: string;
   audioFile: string;
   closeAudioPlayer: () => void;
+  emptyFile: boolean;
 };
 
 export default function AudioPlayer({
@@ -21,6 +22,7 @@ export default function AudioPlayer({
   songCover,
   audioFile,
   closeAudioPlayer,
+  emptyFile,
 }: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -90,7 +92,13 @@ export default function AudioPlayer({
   return (
     <div className="audio-player grid w-full grid-cols-3 place-items-center gap-44 bg-base-100 p-4 text-primary">
       <div className="flex w-[55%] items-center gap-3">
-        <Image width={75} height={75} src={songCover} alt="" />
+        <Image
+          className="border-[2px] border-secondary shadow-lg"
+          width={75}
+          height={75}
+          src={songCover}
+          alt=""
+        />
         <span className="text-xl">{title}</span>
       </div>
       <audio
@@ -109,7 +117,11 @@ export default function AudioPlayer({
             <BsFillRewindFill />
           </button>
           <button className="text-3xl" onClick={toggleAudio}>
-            {!isPlaying ? <FaRegStopCircle /> : <FaRegPlayCircle />}
+            {!isPlaying && emptyFile ? (
+              <FaRegStopCircle />
+            ) : (
+              <FaRegPlayCircle />
+            )}
           </button>
           <button className="rotate-180 text-lg" onClick={forward}>
             <BsFillRewindFill />
