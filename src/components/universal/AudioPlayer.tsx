@@ -90,8 +90,8 @@ export default function AudioPlayer({
   };
 
   return (
-    <div className="audio-player grid w-full grid-cols-3 place-items-center gap-44 bg-base-100 p-4 text-primary">
-      <div className="flex w-[55%] items-center gap-3">
+    <div className="audio-player grid w-screen grid-cols-3 place-items-center gap-44 bg-base-100 py-4 px-20 text-primary">
+      <div className="flex w-full items-center gap-3">
         <Image
           className="border-[2px] border-secondary shadow-lg"
           width={75}

@@ -1,7 +1,7 @@
 "use client";
 
 import FeaturedBeatsItems from "./FeaturedBeatsItem";
-import { featuredBeats } from "../universal/featuredBeatsList";
+import { featuredBeats } from "./featuredBeatsList";
 import { useState } from "react";
 import AudioPlayer from "../universal/AudioPlayer";
 // import { motion, AnimatePresence } from "framer-motion";
@@ -11,11 +11,13 @@ export default function FeaturedBeats() {
   const [audioFile, setAudioFile] = useState<string | null>(null);
   const [songCover, setSongCover] = useState<string | null>(null);
   const [title, setTitle] = useState<string | null>(null);
+  const [playingFile, setPlayingFile] = useState("") 
 
   const handleAudio = (audio: string, title: string, cover: string) => {
     setAudioFile(audio);
     setSongCover(cover);
     setTitle(title);
+    setPlayingFile(audio)
   };
 
   const closeAudioPlayer = () => {
@@ -49,6 +51,7 @@ export default function FeaturedBeats() {
               songCover={item.cover}
               bpm={item.bpm}
               genre={item.genre}
+              playingFile={playingFile}
             />
           </div>
         ))}

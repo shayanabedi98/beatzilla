@@ -12,7 +12,7 @@ type Props = {
   playingFile: string;
 };
 
-export default function FeaturedBeatsItems({
+export default function BeatsListItem({
   songCover,
   title,
   handleClick,
