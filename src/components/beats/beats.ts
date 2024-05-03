@@ -2,9 +2,9 @@ export const beats = [
   {
     title: "Woman",
     path: "/audio/beat1.mp3",
-    cover: "/cover/sunnyexpress.png",
+    cover: "/cover/woman.png",
     genre: ["Hip Hop"],
-    bpm: 128,
+    bpm: 90,
   },
   {
     title: "Sunny Express",
@@ -16,9 +16,9 @@ export const beats = [
   {
     title: "DK",
     path: "/audio/beat3.mp3",
-    cover: "/cover/youdig.png",
+    cover: "/cover/dk.jpg",
     genre: ["Hip Hop", "Phonk"],
-    bpm: 94,
+    bpm: 130,
   },
   {
     title: "You Dig",
@@ -44,16 +44,23 @@ export const beats = [
   {
     title: "Trees",
     path: "/audio/beat7.mp3",
-    cover: "/cover/thechase.png",
+    cover: "/cover/trees.jpg",
     genre: ["Hip Hop", "Psychedelic"],
-    bpm: 120,
+    bpm: 88,
+  },
+  {
+    title: "Pray to God",
+    path: "/audio/beat8.mp3",
+    cover: "/cover/praytogod.jpg",
+    genre: ["Hip Hop"],
+    bpm: 98,
   },
   {
     title: "Tokyo Bound",
     path: "/audio/beat9.mp3",
-    cover: "/cover/clinteastwood.png",
+    cover: "/cover/tokyobound.jpg",
     genre: ["Hip Hop", "Phonk"],
-    bpm: 90,
+    bpm: 136,
   },
   {
     title: "Clint Eastwood",

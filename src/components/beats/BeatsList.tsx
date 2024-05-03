@@ -30,7 +30,7 @@ export default function BeatsList() {
       <div className="container mx-auto w-2/3">
         <h2 className="container-header">Beats</h2>
         <h3 className="mb-10 text-center text-2xl">
-          Enjoy a list of instrumental samples with a mix of Hip Hop, EDM, and
+          Enjoy a list of instrumental snippets with a mix of Hip Hop, EDM, and
           Alternative Pop. You will hear influences from Wu-Tang Clan, The
           Weeknd, Daft Punk, and more. Downloads will not be available and if
           you&apos;re interested in collaborating with the producer, feel free

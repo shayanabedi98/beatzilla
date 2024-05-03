@@ -23,14 +23,14 @@ export default function BeatsListItem({
 }: Props) {
   return (
     <div className="flex w-full items-center justify-between text-primary">
-      <Image width={100} height={100} src={songCover} alt="" />
+      <Image className="grayscale object-cover w-[100px] h-[100px]" width={100} height={100} src={songCover} alt="" />
       <div className="grid w-2/3 grid-cols-3 place-items-center">
         <p className="flex items-center gap-3 place-self-start text-2xl">
           {title}
           {audioFile === playingFile && (
             <div>
               <Image
-                className="spinning-zilla w-8 rounded-full border-4 p-1"
+                className="spinning-zilla w-8 rounded-full border-4  p-1"
                 src={spinningZilla}
                 alt=""
               />
