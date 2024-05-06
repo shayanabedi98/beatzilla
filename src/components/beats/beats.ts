@@ -14,11 +14,46 @@ export const beats = [
     bpm: 128,
   },
   {
+    title: "Where You Wanna?",
+    path: "/audio/beat15.mp3",
+    cover: "/cover/whereyouwanna.jpeg",
+    genre: ["Pop", "EDM"],
+    bpm: 124,
+  },
+  {
+    title: "Soul Saver",
+    path: "/audio/beat16.mp3",
+    cover: "/cover/soulsaver.jpg",
+    genre: ["Hip Hop"],
+    bpm: 86,
+  },
+  {
     title: "DK",
     path: "/audio/beat3.mp3",
     cover: "/cover/dk.jpg",
-    genre: ["Hip Hop", "Phonk"],
+    genre: ["Hip Hop"],
     bpm: 130,
+  },
+  {
+    title: "Insanity",
+    path: "/audio/beat17.mp3",
+    cover: "/cover/insanity.png",
+    genre: ["Pop"],
+    bpm: 136,
+  },
+  {
+    title: "Masterpiece",
+    path: "/audio/beat18.mp3",
+    cover: "/cover/masterpiece.jpg",
+    genre: ["Hip Hop"],
+    bpm: 120,
+  },
+  {
+    title: "Choppy",
+    path: "/audio/beat19.mp3",
+    cover: "/cover/choppy.jpg",
+    genre: ["Hip Hop"],
+    bpm: 88,
   },
   {
     title: "You Dig",
@@ -26,6 +61,13 @@ export const beats = [
     cover: "/cover/youdig.png",
     genre: ["Hip Hop"],
     bpm: 94,
+  },
+  {
+    title: "I Can't Take It",
+    path: "/audio/beat11.mp3",
+    cover: "/cover/icanttakeit.jpg",
+    genre: ["Pop", "EDM"],
+    bpm: 120,
   },
   {
     title: "Ill Intent",
@@ -38,15 +80,22 @@ export const beats = [
     title: "The Chase",
     path: "/audio/beat6.mp3",
     cover: "/cover/thechase.png",
-    genre: ["Hip Hop", "Phonk"],
+    genre: ["Hip Hop"],
     bpm: 120,
   },
   {
     title: "Trees",
     path: "/audio/beat7.mp3",
     cover: "/cover/trees.jpg",
-    genre: ["Hip Hop", "Psychedelic"],
+    genre: ["Hip Hop"],
     bpm: 88,
+  },
+  {
+    title: "Enough of Pain",
+    path: "/audio/beat12.mp3",
+    cover: "/cover/enoughofpain.png",
+    genre: ["Pop", "EDM"],
+    bpm: 123,
   },
   {
     title: "Pray to God",
@@ -59,8 +108,29 @@ export const beats = [
     title: "Tokyo Bound",
     path: "/audio/beat9.mp3",
     cover: "/cover/tokyobound.jpg",
-    genre: ["Hip Hop", "Phonk"],
+    genre: ["Hip Hop"],
     bpm: 136,
+  },
+  {
+    title: "Coming After You",
+    path: "/audio/beat13.mp3",
+    cover: "/cover/comingafteryou.jpeg",
+    genre: ["Pop", "EDM"],
+    bpm: 120,
+  },
+  {
+    title: "Drive at Night",
+    path: "/audio/beat20.mp3",
+    cover: "/cover/driveatnight.jpg",
+    genre: ["Hip Hop"],
+    bpm: 133,
+  },
+  {
+    title: "No Fan of Me",
+    path: "/audio/beat14.mp3",
+    cover: "/cover/nofanofme.jpg",
+    genre: ["Pop"],
+    bpm: 112,
   },
   {
     title: "Clint Eastwood",
@@ -70,3 +140,5 @@ export const beats = [
     bpm: 90,
   },
 ];
+
+export default beats

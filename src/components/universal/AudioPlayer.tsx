@@ -94,8 +94,8 @@ export default function AudioPlayer({
       <div className="flex w-full items-center gap-3">
         <Image
           className="border-[2px] grayscale w-[75px] h-[75px] border-secondary object-cover shadow-lg"
-          width={75}
-          height={75}
+          width={200}
+          height={200}
           src={songCover}
           alt=""
         />
