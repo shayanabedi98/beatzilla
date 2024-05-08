@@ -23,7 +23,13 @@ export default function BeatsListItem({
 }: Props) {
   return (
     <div className="flex w-full items-center justify-between text-primary">
-      <Image className="grayscale object-cover w-[100px] h-[100px]" width={200} height={200} src={songCover} alt="" />
+      <Image
+        className="h-[100px] w-[100px] object-cover grayscale"
+        width={200}
+        height={200}
+        src={songCover}
+        alt=""
+      />
       <div className="grid w-2/3 grid-cols-3 place-items-center">
         <p className="flex items-center gap-3 place-self-start text-2xl">
           {title}
@@ -39,9 +45,20 @@ export default function BeatsListItem({
         </p>
         <p>{bpm} bpm</p>
         <div>
-          {genre.map((i, index) => (
-            <p key={index}>{i}</p>
-          ))}
+          {genre.map((i, index) => {
+            let displayGenre;
+            if (i === "hipHop") {
+              displayGenre = "Hip Hop";
+            } else if (i === "pop") {
+              displayGenre = "Pop";
+            } else if (i === "edm") {
+              displayGenre = "EDM";
+            } else {
+              displayGenre = i;
+            }
+
+            return <p key={index}>{displayGenre}</p>;
+          })}
         </div>
       </div>
       <div className="cursor-pointer text-3xl">

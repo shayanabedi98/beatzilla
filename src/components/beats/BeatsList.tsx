@@ -5,12 +5,60 @@ import AudioPlayer from "../universal/AudioPlayer";
 import { beats } from "./beats";
 import BeatsListItem from "./BeatsListItem";
 import { useState } from "react";
+import Filter from "./Filter";
+
+type ActiveState = {
+  all: boolean;
+  pop: boolean;
+  edm: boolean;
+  hipHop: boolean;
+  [key: string]: boolean;
+};
 
 export default function BeatsList() {
   const [audioFile, setAudioFile] = useState<string | null>(null);
   const [songCover, setSongCover] = useState<string | null>(null);
   const [title, setTitle] = useState<string | null>(null);
   const [playingFile, setPlayingFile] = useState("");
+  const [showing, setShowing] = useState('All')
+  const [isActive, setIsActive] = useState<ActiveState>({
+    all: true,
+    pop: false,
+    edm: false,
+    hipHop: false,
+  });
+
+  const handleFilter = (genre: string) => {
+    setIsActive((prevState) => {
+      let newState;
+      if (genre === "all") {
+        newState = {
+          all: true,
+          pop: false,
+          edm: false,
+          hipHop: false,
+        };
+      } else {
+        newState = {
+          ...prevState,
+          all: false,
+          [genre]: !prevState[genre],
+        };
+      }
+      if (!newState.pop && !newState.edm && !newState.hipHop) {
+        newState.all = true;
+      }
+
+      if (newState.pop && newState.edm && newState.hipHop) {
+        newState.all = true;
+        newState.pop = false;
+        newState.edm = false;
+        newState.hipHop = false;
+      }
+
+      return newState;
+    });
+  };
 
   const handleAudio = (audio: string, title: string, cover: string) => {
     setAudioFile(audio);
@@ -40,27 +88,33 @@ export default function BeatsList() {
           </Link>{" "}
           page.
         </h3>
+        <Filter handleFilter={handleFilter} isActive={isActive} />
+        <p className="my-8 text-xl">Showing <span className="font-bold">{showing}</span> beats</p>
         <div className="flex w-full flex-col items-center justify-center rounded-md bg-secondary shadow-lg">
-          {beats.map((item, index) => (
-            <div
-              key={index}
-              className={
-                index % 2 === 0
-                  ? "w-full bg-base-100 px-8 py-4 shadow-lg"
-                  : "w-full bg-secondary px-8 py-4"
-              }
-            >
-              <BeatsListItem
-                handleClick={handleAudio}
-                title={item.title}
-                audioFile={item.path}
-                songCover={item.cover}
-                bpm={item.bpm}
-                genre={item.genre}
-                playingFile={playingFile}
-              />
-            </div>
-          ))}
+          {beats
+            .filter(
+              (item) => isActive.all || item.genre.some((g) => isActive[g]),
+            )
+            .map((item, index) => (
+              <div
+                key={index}
+                className={
+                  index % 2 === 0
+                    ? "w-full bg-base-100 px-8 py-4 shadow-lg"
+                    : "w-full bg-secondary px-8 py-4"
+                }
+              >
+                <BeatsListItem
+                  handleClick={handleAudio}
+                  title={item.title}
+                  audioFile={item.path}
+                  songCover={item.cover}
+                  bpm={item.bpm}
+                  genre={item.genre}
+                  playingFile={playingFile}
+                />
+              </div>
+            ))}
         </div>
         {audioFile && songCover && title ? (
           <div className="fixed bottom-0 z-10">
@@ -87,3 +141,22 @@ export default function BeatsList() {
     </div>
   );
 }
+
+// <div
+// key={index}
+// className={
+//   index % 2 === 0
+//     ? "w-full bg-base-100 px-8 py-4 shadow-lg"
+//     : "w-full bg-secondary px-8 py-4"
+// }
+// >
+// <BeatsListItem
+//   handleClick={handleAudio}
+//   title={item.title}
+//   audioFile={item.path}
+//   songCover={item.cover}
+//   bpm={item.bpm}
+//   genre={item.genre}
+//   playingFile={playingFile}
+// />
+// </div>
