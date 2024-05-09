@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className="flex gap-8">
         <NavbarItemDesktop content="Home" location="/" />
         <NavbarItemDesktop content="Beats" location="/beats" />
-        <NavbarItemDesktop content="Contact" location="/Contact" />
+        <NavbarItemDesktop content="Contact" location="/contact" />
       </div>
     </nav>
   );

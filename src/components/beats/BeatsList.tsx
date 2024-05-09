@@ -4,7 +4,7 @@ import Link from "next/link";
 import AudioPlayer from "../universal/AudioPlayer";
 import { beats } from "./beats";
 import BeatsListItem from "./BeatsListItem";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Filter from "./Filter";
 
 type ActiveState = {
@@ -20,13 +20,31 @@ export default function BeatsList() {
   const [songCover, setSongCover] = useState<string | null>(null);
   const [title, setTitle] = useState<string | null>(null);
   const [playingFile, setPlayingFile] = useState("");
-  const [showing, setShowing] = useState('All')
+  const [showing, setShowing] = useState("");
   const [isActive, setIsActive] = useState<ActiveState>({
     all: true,
     pop: false,
     edm: false,
     hipHop: false,
   });
+
+  useEffect(() => {
+    if (isActive.pop && isActive.hipHop) {
+      setShowing("Pop & Hip Hop");
+    } else if (isActive.pop && isActive.edm) {
+      setShowing("Pop & EDM");
+    } else if (isActive.hipHop && isActive.edm) {
+      setShowing("EDM & Hip Hop");
+    } else if (isActive.pop) {
+      setShowing("Pop");
+    } else if (isActive.edm) {
+      setShowing("EDM");
+    } else if (isActive.hipHop) {
+      setShowing("Hip Hop");
+    } else {
+      setShowing("All");
+    }
+  }, [showing, isActive]);
 
   const handleFilter = (genre: string) => {
     setIsActive((prevState) => {
@@ -89,7 +107,9 @@ export default function BeatsList() {
           page.
         </h3>
         <Filter handleFilter={handleFilter} isActive={isActive} />
-        <p className="my-8 text-xl">Showing <span className="font-bold">{showing}</span> beats</p>
+        <p className="my-8 text-xl">
+          Showing <span className="font-bold">{showing}</span> beats
+        </p>
         <div className="flex w-full flex-col items-center justify-center rounded-md bg-secondary shadow-lg">
           {beats
             .filter(
@@ -141,22 +161,3 @@ export default function BeatsList() {
     </div>
   );
 }
-
-// <div
-// key={index}
-// className={
-//   index % 2 === 0
-//     ? "w-full bg-base-100 px-8 py-4 shadow-lg"
-//     : "w-full bg-secondary px-8 py-4"
-// }
-// >
-// <BeatsListItem
-//   handleClick={handleAudio}
-//   title={item.title}
-//   audioFile={item.path}
-//   songCover={item.cover}
-//   bpm={item.bpm}
-//   genre={item.genre}
-//   playingFile={playingFile}
-// />
-// </div>
