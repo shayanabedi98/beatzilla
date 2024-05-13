@@ -4,6 +4,7 @@ import FeaturedBeatsItems from "./FeaturedBeatsItem";
 import { featuredBeats } from "./featuredBeatsList";
 import { useState } from "react";
 import AudioPlayer from "../universal/AudioPlayer";
+import FeaturedAudioPlayer from "./FeaturedAudioPlayer";
 // import { motion, AnimatePresence } from "framer-motion";
 // import defaultCover from "@/../public/cover/default.png";
 
@@ -27,7 +28,7 @@ export default function FeaturedBeats() {
   };
 
   return (
-    <div className="container mx-auto w-1/2">
+    <div className="container mx-auto w-2/3">
       <h2 className="container-header">Featured Beats</h2>
       <h3 className="mb-10 text-center text-2xl">
         Listen to a carefully curated list of instrumentals produced by{" "}
@@ -57,23 +58,23 @@ export default function FeaturedBeats() {
         ))}
       </div>
       {audioFile && songCover && title ? (
-        <div className="fixed bottom-0 z-10">
-          <AudioPlayer
+        <div className="mt-10">
+          <FeaturedAudioPlayer
             title={title}
             songCover={songCover}
             audioFile={audioFile}
             closeAudioPlayer={closeAudioPlayer}
-            emptyFile={true}
+            emptyFile={false}
           />
         </div>
       ) : (
-        <div className="fixed bottom-0 z-10">
-          <AudioPlayer
+        <div className="mt-10">
+          <FeaturedAudioPlayer
             title="Pick a beat"
             songCover="/cover/default.png"
             audioFile=""
             closeAudioPlayer={closeAudioPlayer}
-            emptyFile={false}
+            emptyFile={true}
           />
         </div>
       )}
