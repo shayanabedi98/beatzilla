@@ -1,9 +1,11 @@
 import Banner from "@/components/universal/Banner";
 import banner from "@/assets/contact/banner.webp"
+import Footer from "@/components/universal/Footer"
+import EmailForm from "@/components/contact/EmailForm";
 
 export default function Contact() {
   return (
-    <div>
+    <main>
       <Banner
         buttonContent="Listen"
         buttonPath="/beats"
@@ -12,6 +14,8 @@ export default function Contact() {
         buttonPresent={false}
         uniqueClassName="contact-banner"
       />
-    </div>
+      <EmailForm />    
+      <Footer padding="py-10" />
+    </main>
   );
 }

@@ -72,6 +72,11 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
 }
 
+textarea {
+  resize: none;
+  height: 300px;
+}
+
 .spinning-zilla {
   animation: spinning-zilla 10s linear infinite;
 }

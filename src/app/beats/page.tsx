@@ -1,10 +1,11 @@
 import Banner from "@/components/universal/Banner";
 import banner from "@/assets/beats/banner.webp"
 import BeatsList from "@/components/beats/BeatsList";
+import Footer from "@/components/universal/Footer";
 
 export default function Beats() {
   return (
-    <div>
+    <main>
       <Banner
         buttonContent="Listen"
         buttonPath="/beats"
@@ -14,6 +15,7 @@ export default function Beats() {
         uniqueClassName="beats-banner"
       />
       <BeatsList />
-    </div>
+      <Footer padding="pt-10 pb-36" />
+    </main>
   );
 }
