@@ -33,7 +33,7 @@ export default function EmailForm() {
   return (
     <div className="container flex flex-col items-center">
       <h2 className="container-header">If you are interested in working together, feel free to send me an email</h2>
-      <h3 className="mb-10">Responses are made within 48 hours.</h3>
+      <h3 className="mb-10 text-lg">Responses are made within 48 hours.</h3>
       <form onSubmit={onSubmit} className="flex flex-col w-1/3 min-w-[300px] gap-4 mx-auto">
         <input value={honeyPot} onChange={(e) => setHoneyPot(e.target.value)} type="text" placeholder="subject" name="subject" className="hidden"/>
         <input type="text" name="name" required placeholder="Name" className="px-1 h-8 border-2"/>

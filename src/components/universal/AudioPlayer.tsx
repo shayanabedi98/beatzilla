@@ -90,10 +90,10 @@ export default function AudioPlayer({
   };
 
   return (
-    <div className="audio-player grid w-screen grid-cols-3 place-items-center gap-44 bg-base-100 py-4 px-20 text-primary">
+    <div className="audio-player grid w-screen grid-cols-3 place-items-center gap-44 bg-base-100 px-20 py-4 text-primary">
       <div className="flex w-full items-center gap-3">
         <Image
-          className="border-[2px] grayscale w-[75px] h-[75px] border-secondary object-cover shadow-lg"
+          className="h-[75px] w-[75px] border-[2px] border-secondary object-cover shadow-lg grayscale"
           width={200}
           height={200}
           src={songCover}
@@ -113,17 +113,26 @@ export default function AudioPlayer({
       </audio>
       <div className="relative flex flex-col gap-1">
         <div className="flex items-center justify-center gap-4">
-          <button className="text-lg" onClick={rewind}>
+          <button
+            className={`text-lg ${emptyFile ? "text-neutral-400" : ""}`}
+            onClick={rewind}
+          >
             <BsFillRewindFill />
           </button>
-          <button className="text-3xl" onClick={toggleAudio}>
-            {!isPlaying && emptyFile ? (
+          <button
+            className={`text-3xl ${emptyFile ? "text-neutral-400" : ""}`}
+            onClick={toggleAudio}
+          >
+            {!isPlaying && !emptyFile ? (
               <FaRegStopCircle />
             ) : (
               <FaRegPlayCircle />
             )}
           </button>
-          <button className="rotate-180 text-lg" onClick={forward}>
+          <button
+            className={`rotate-180 text-lg ${emptyFile ? "text-neutral-400" : ""}`}
+            onClick={forward}
+          >
             <BsFillRewindFill />
           </button>
         </div>
@@ -169,7 +178,7 @@ export default function AudioPlayer({
         />
       </div>
       <div className="absolute right-3 top-3 cursor-pointer text-2xl">
-        <IoMdClose onClick={closeAudioPlayer} />
+        {!emptyFile && <IoMdClose onClick={closeAudioPlayer} />}
       </div>
     </div>
   );

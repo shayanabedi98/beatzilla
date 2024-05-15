@@ -143,7 +143,7 @@ export default function BeatsList() {
               songCover={songCover}
               audioFile={audioFile}
               closeAudioPlayer={closeAudioPlayer}
-              emptyFile={true}
+              emptyFile={false}
             />
           </div>
         ) : (
@@ -153,7 +153,7 @@ export default function BeatsList() {
               songCover="/cover/default.png"
               audioFile=""
               closeAudioPlayer={closeAudioPlayer}
-              emptyFile={false}
+              emptyFile={true}
             />
           </div>
         )}

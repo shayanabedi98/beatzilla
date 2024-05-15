@@ -113,17 +113,26 @@ export default function FeaturedAudioPlayer({
       </audio>
       <div className="relative flex flex-col gap-1">
         <div className="flex items-center justify-center gap-4">
-          <button className={`text-lg ${emptyFile ? "text-neutral-400" : ""}`} onClick={rewind}>
+          <button
+            className={`text-lg ${emptyFile ? "text-neutral-400" : ""}`}
+            onClick={rewind}
+          >
             <BsFillRewindFill />
           </button>
-          <button className={`text-3xl ${emptyFile ? "text-neutral-400" : ""}`} onClick={toggleAudio}>
+          <button
+            className={`text-3xl ${emptyFile ? "text-neutral-400" : ""}`}
+            onClick={toggleAudio}
+          >
             {!isPlaying && !emptyFile ? (
               <FaRegStopCircle />
             ) : (
               <FaRegPlayCircle />
             )}
           </button>
-          <button className={`text-lg rotate-180 ${emptyFile ? "text-neutral-400" : ""}`} onClick={forward}>
+          <button
+            className={`rotate-180 text-lg ${emptyFile ? "text-neutral-400" : ""}`}
+            onClick={forward}
+          >
             <BsFillRewindFill />
           </button>
         </div>
