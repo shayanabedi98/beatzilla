@@ -47,7 +47,7 @@ input[type="range"] {
   appearance: none;
   background: transparent;
   cursor: pointer;
-  width: 25rem;
+  width: 11rem;
 }
 
 input[name="volume"] {
@@ -78,9 +78,19 @@ textarea {
 }
 
 .spinning-zilla {
-  animation: spinning-zilla 10s linear infinite;
+  animation: spinning-zilla 5s linear infinite;
 }
 
 .beats-banner {
   object-position: 0 0;
+}
+
+@media (min-width: 1024 ) {
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 25rem;
+  }
 }

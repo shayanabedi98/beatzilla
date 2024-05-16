@@ -23,21 +23,21 @@ export default function FeaturedBeatsItems({
 }: Props) {
   return (
     <div className="flex w-full items-center justify-between text-primary">
-      <Image width={100} height={100} src={songCover} alt="" />
-      <div className="grid w-2/3 grid-cols-3 place-items-center">
-        <p className="flex items-center gap-3 place-self-start text-2xl">
+      <Image width={100} height={100} src={songCover} className="w-16" alt="" />
+      <div className="grid w-2/3 grid-cols-2 md:grid-cols-3 place-items-center">
+        <p className="flex items-center gap-3 place-self-start text-lg lg:text-2xl">
           {title}
           {audioFile === playingFile && (
             <div>
               <Image
-                className="spinning-zilla w-8 rounded-full border-4 p-1"
+                className="spinning-zilla w-8 rounded-full border-2 lg:border-4 p-1"
                 src={spinningZilla}
                 alt=""
               />
             </div>
           )}
         </p>
-        <p>{bpm} bpm</p>
+        <p className="max-md:hidden">{bpm} bpm</p>
         <div>
           {genre.map((i, index) => (
             <p key={index}>{i}</p>

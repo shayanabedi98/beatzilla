@@ -6,25 +6,68 @@ import { IoCloseOutline } from "react-icons/io5";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import NavbarItemMobile from "./NavbarItemobile";
 
 export default function Navbar() {
+  const [showMobileNav, setShowMobileNav] = useState(false);
+
+  useEffect(() => {
+    const handleShowMobileNav = () => {
+      if (window.innerWidth >= 1024) {
+        setShowMobileNav(false);
+      }
+    };
+
+    window.addEventListener("resize", handleShowMobileNav);
+  });
+
   return (
-    <nav className="flex items-center justify-between px-24 py-2">
-      <div>
-        <Link href="/">
-          <Image
-            priority
-            src={logo}
-            alt="Text that says Beat Zilla, with a silhouette of Godzilla behind it."
-            className="w-32"
-          />
-        </Link>
+    <nav className="absolute z-50 flex w-full flex-col bg-neutral-200">
+      <div className="flex items-center justify-between px-4 py-2 lg:px-24">
+        <div>
+          <Link href="/">
+            <Image
+              priority
+              src={logo}
+              alt="Text that says Beat Zilla, with a silhouette of Godzilla behind it."
+              className="w-32"
+            />
+          </Link>
+        </div>
+        <div className="hidden gap-8 lg:flex">
+          <NavbarItemDesktop content="Home" location="/" />
+          <NavbarItemDesktop content="Beats" location="/beats" />
+          <NavbarItemDesktop content="Contact" location="/contact" />
+        </div>
+        <div className="lg:hidden">
+          <div onClick={() => setShowMobileNav(!showMobileNav)}>
+            {showMobileNav ? <IoCloseOutline /> : <RxHamburgerMenu />}
+          </div>
+        </div>
       </div>
-      <div className="flex gap-8">
-        <NavbarItemDesktop content="Home" location="/" />
-        <NavbarItemDesktop content="Beats" location="/beats" />
-        <NavbarItemDesktop content="Contact" location="/contact" />
-      </div>
+      <AnimatePresence>
+        {showMobileNav && (
+          <motion.div
+            className="flex items-center justify-center"
+            initial={{ height: 0 }}
+            animate={{ height: 80 }}
+            exit={{ height: 0 }}
+          >
+            <motion.div
+              className="flex gap-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <NavbarItemMobile content="Home" location="/" />
+              <NavbarItemMobile content="Beats" location="/beats" />
+              <NavbarItemMobile content="Contact" location="/contact" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

@@ -28,21 +28,21 @@ export default function FeaturedBeats() {
   };
 
   return (
-    <div className="container mx-auto w-2/3">
+    <div className="container w-[95%] lg:w-2/3">
       <h2 className="container-header">Featured Beats</h2>
       <h3 className="mb-10 text-center text-2xl">
         Listen to a carefully curated list of instrumentals produced by{" "}
         <span className="font-bold">Shayan Abedi</span>, which rely heavily on
         the sound of Hip Hop.
       </h3>
-      <div className="flex w-full flex-col items-center justify-center rounded-md bg-secondary shadow-lg">
+      <div className="flex flex-col items-center justify-center rounded-md bg-secondary shadow-lg">
         {featuredBeats.map((item, index) => (
           <div
             key={index}
             className={
               index % 2 === 0
-                ? "w-full bg-base-100 px-8 py-4 shadow-lg"
-                : "w-full bg-secondary px-8 py-4"
+                ? "w-full bg-base-100 px-2 lg:px-8 py-4 shadow-lg"
+                : "w-full bg-secondary px-2 lg:px-8 py-4"
             }
           >
             <FeaturedBeatsItems
@@ -58,7 +58,7 @@ export default function FeaturedBeats() {
         ))}
       </div>
       {audioFile && songCover && title ? (
-        <div className="mt-10">
+        <div className="w-full mt-10">
           <FeaturedAudioPlayer
             title={title}
             songCover={songCover}

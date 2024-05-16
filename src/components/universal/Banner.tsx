@@ -19,9 +19,9 @@ export default function Banner({
   uniqueClassName
 }: Props) {
   return (
-    <header className="relative flex flex-col items-center justify-center">
+    <header className="relative flex flex-col items-center justify-center top-16">
       <Image
-        className={`h-[900px] w-full object-cover grayscale ${uniqueClassName}`}
+        className={`h-[600px] xl:h-[900px] w-full object-cover grayscale ${uniqueClassName}`}
         priority
         src={bannerImage}
         alt=""
@@ -29,7 +29,7 @@ export default function Banner({
         height={1080}
       />
       <div className="absolute flex flex-col items-center gap-32">
-        <h1 className="text-6xl font-bold text-primary">{heading}</h1>
+        <h1 className="text-4xl text-center lg:text-6xl font-bold text-primary">{heading}</h1>
         {buttonPresent && (
           <Link href={buttonPath}>
             <button className="call-to-action">{buttonContent}</button>
