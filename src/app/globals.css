@@ -9,7 +9,7 @@
     @apply mx-auto my-44 flex flex-col items-center;
   }
   .container-header {
-    @apply mb-10 text-4xl font-semibold;
+    @apply mb-10 text-3xl md:text-4xl font-semibold;
   }
   .call-to-action {
     @apply h-14 w-44 bg-primary text-xl font-bold text-secondary transition duration-100 hover:bg-base-100 hover:text-primary;

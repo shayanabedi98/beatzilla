@@ -15,9 +15,9 @@ export default function BackToTop() {
     })
 
     return (
-        <div className="z-40 fixed bottom-16 right-16">
+        <div className="z-40 fixed bottom-8 right-8 lg:bottom-16 lg:right-16">
             {windowY >= 300 && (
-                <div className="bg-primary border-[2px] border-secondary cursor-pointer text-3xl rounded-full p-2" onClick={() => {window.scrollTo(0, 0)}}>
+                <div className="bg-primary border-[2px] border-secondary cursor-pointer text-2xl shadow-lg md:text-3xl rounded-full p-1 md:p-2" onClick={() => {window.scrollTo(0, 0)}}>
                     <FaArrowUp />
                 </div>
             )}
