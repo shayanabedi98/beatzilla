@@ -12,19 +12,20 @@ export default function FeaturedBeats() {
   const [audioFile, setAudioFile] = useState<string | null>(null);
   const [songCover, setSongCover] = useState<string | null>(null);
   const [title, setTitle] = useState<string | null>(null);
-  const [playingFile, setPlayingFile] = useState("") 
+  const [playingFile, setPlayingFile] = useState("");
 
   const handleAudio = (audio: string, title: string, cover: string) => {
     setAudioFile(audio);
     setSongCover(cover);
     setTitle(title);
-    setPlayingFile(audio)
+    setPlayingFile(audio);
   };
 
   const closeAudioPlayer = () => {
     setAudioFile(null);
     setSongCover(null);
     setTitle(null);
+    setPlayingFile("")
   };
 
   return (
@@ -41,8 +42,8 @@ export default function FeaturedBeats() {
             key={index}
             className={
               index % 2 === 0
-                ? "w-full bg-base-100 px-2 lg:px-8 py-4 shadow-lg"
-                : "w-full bg-secondary px-2 lg:px-8 py-4"
+                ? "w-full bg-base-100 px-2 py-4 shadow-lg lg:px-8"
+                : "w-full bg-secondary px-2 py-4 lg:px-8"
             }
           >
             <FeaturedBeatsItems
@@ -58,7 +59,7 @@ export default function FeaturedBeats() {
         ))}
       </div>
       {audioFile && songCover && title ? (
-        <div className="w-full mt-10">
+        <div className="mt-10 w-full">
           <FeaturedAudioPlayer
             title={title}
             songCover={songCover}
@@ -68,16 +69,19 @@ export default function FeaturedBeats() {
           />
         </div>
       ) : (
-        <div className="w-full 
-        mt-10">
+        <div
+          className="mt-10 
+        w-full"
+        >
           <FeaturedAudioPlayer
-            title="Pick a beat"
+            title="Pick Beat"
             songCover="/cover/default.png"
             audioFile=""
             closeAudioPlayer={closeAudioPlayer}
             emptyFile={true}
           />
         </div>
+
       )}
     </div>
   );

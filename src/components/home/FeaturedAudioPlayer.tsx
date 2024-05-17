@@ -90,16 +90,16 @@ export default function FeaturedAudioPlayer({
   };
 
   return (
-    <div className="audio-player relative grid grid-rows-3 lg:grid-cols-3 place-items-center lg:gap-44 bg-base-100 px-2 lg:px-20 py-4 text-primary">
-      <div className="flex w-full items-center gap-3">
+    <div className="audio-player relative grid max-lg:grid-rows-2 lg:grid-cols-3 place-items-center lg:gap-44 bg-base-100 px-2 lg:px-16 py-4 text-primary">
+      <div className="flex w-full items-center gap-3 max-lg:justify-center">
         <Image
-          className="w-[50px] h-[50px] md:h-[75px] md:w-[75px] border-[2px] border-secondary object-cover shadow-lg grayscale"
+          className="max-lg:absolute left-3 w-[50px] h-[50px] md:h-[75px] md:w-[75px] border-[2px] border-secondary object-cover shadow-lg grayscale"
           width={200}
           height={200}
           src={songCover}
           alt=""
         />
-        <span className="text-xl">{title}</span>
+        <span className="text-xl justify-self-center ">{title}</span>
       </div>
       <audio
         ref={audioRef}
@@ -160,7 +160,7 @@ export default function FeaturedAudioPlayer({
           </p>
         </div>
       </div>
-      <div className="flex gap-3">
+      <div className="max-lg:hidden flex gap-3">
         <label
           htmlFor="volume"
           className="cursor-pointer"

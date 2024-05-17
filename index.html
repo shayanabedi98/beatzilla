@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="color: red; text-align: center">
+      <h1 class="main-header">Breaking Naws</h1>
+      <h2>Israel Attacks Gaza</h2>
+      <h3>By Nicolas Rojas</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quae,
+        expedita dolor qui deserunt nemo ad sunt similique. Eligendi modi
+        facilis voluptate, repellendus quibusdam praesentium cum ut non
+        exercitationem ex?
+      </p>
+    </div>
+    <h1>Breaking News</h1>
+    <h2>Israel Attacks Gaza</h2>
+    <h3>By Nicolas Rojas</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi quae,
+      expedita dolor qui deserunt nemo ad sunt similique. Eligendi modi facilis
+      voluptate, repellendus quibusdam praesentium cum ut non exercitationem ex?
+    </p>
+  </body>
+  <script>
+    let header = document.querySelector(".main-header");
+
+    if (header.innerHTML === "Breaking News") {
+      header.addEventListener("click", () => {
+        header.style.color = "blue";
+      });
+    } else {
+      header.addEventListener("click", () => {
+        header.style.color = "purple";
+      });
+    }
+  </script>
+</html>

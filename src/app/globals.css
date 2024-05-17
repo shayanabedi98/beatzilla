@@ -9,7 +9,7 @@
     @apply mx-auto my-44 flex flex-col items-center;
   }
   .container-header {
-    @apply mb-10 text-3xl md:text-4xl font-semibold;
+    @apply mb-10 text-3xl font-semibold md:text-4xl;
   }
   .call-to-action {
     @apply h-14 w-44 bg-primary text-xl font-bold text-secondary transition duration-100 hover:bg-base-100 hover:text-primary;
@@ -75,6 +75,7 @@ input[type="range"]::-webkit-slider-thumb {
 textarea {
   resize: none;
   height: 300px;
+
 }
 
 .spinning-zilla {
@@ -85,12 +86,13 @@ textarea {
   object-position: 0 0;
 }
 
-@media (min-width: 1024 ) {
-  input[type="range"] {
+@media (min-width: 1024px) {
+  input[name="time"] {
     -webkit-appearance: none;
     appearance: none;
     background: transparent;
     cursor: pointer;
-    width: 25rem;
+    width: 12rem;
   }
 }
+

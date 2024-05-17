@@ -14,11 +14,11 @@ export default function AboutBeatZilla() {
             src={studio}
             alt=""
           />
-          <div className="absolute flex flex-col items-center justify-center">
-            <div className="flex h-72 w-72 items-center justify-center bg-primary">
+          <div className="absolute flex w-full flex-col items-center justify-center">
+            <div className="flex h-72 w-[95%] items-center justify-center bg-primary">
               <Image className="w-3/4" src={logo} alt="" />
             </div>
-            <div className="flex h-72 w-72 flex-col items-center justify-center gap-5 bg-secondary p-4 text-center text-primary">
+            <div className="flex h-[500px] w-[95%] flex-col items-center justify-center gap-5 bg-secondary p-4 text-center text-primary">
               {/* <h3 className="text-2xl font-bold ">BeatZilla?</h3> */}
               <p className="text-lg">
                 Hi, I&apos;m Shayan, a music producer from the Greater Toronto
