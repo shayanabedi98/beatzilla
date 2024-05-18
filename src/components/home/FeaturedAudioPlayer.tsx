@@ -120,7 +120,7 @@ export default function FeaturedAudioPlayer({
             <BsFillRewindFill />
           </button>
           <button
-            className={`text-xl ${emptyFile ? "text-neutral-400" : ""}`}
+            className={`text-4xl ${emptyFile ? "text-neutral-400" : ""}`}
             onClick={toggleAudio}
           >
             {!isPlaying && !emptyFile ? (
