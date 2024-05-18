@@ -1,6 +1,6 @@
 "use client";
 
-import FeaturedBeatsItems from "./FeaturedBeatsItem";
+import BeatsItems from "../universal/BeatsItem";
 import { featuredBeats } from "./featuredBeatsList";
 import { useState } from "react";
 import AudioPlayer from "../universal/AudioPlayer";
@@ -46,7 +46,7 @@ export default function FeaturedBeats() {
                 : "w-full bg-secondary px-2 py-4 lg:px-8"
             }
           >
-            <FeaturedBeatsItems
+            <BeatsItems
               handleClick={handleAudio}
               title={item.title}
               audioFile={item.path}

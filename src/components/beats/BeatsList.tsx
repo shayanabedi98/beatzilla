@@ -3,7 +3,7 @@
 import Link from "next/link";
 import AudioPlayer from "../universal/AudioPlayer";
 import { beats } from "./beats";
-import BeatsListItem from "./BeatsListItem";
+import BeatsItem from "../universal/BeatsItem";
 import { useState, useEffect } from "react";
 import Filter from "./Filter";
 
@@ -93,9 +93,9 @@ export default function BeatsList() {
 
   return (
     <div>
-      <div className="container mx-auto w-2/3">
+      <div className="container w-[95%] lg:w-2/3">
         <h2 className="container-header">Beats</h2>
-        <h3 className="mb-10 text-center text-2xl">
+        <h3 className="mb-10 text-center text-xl md:text-2xl">
           Enjoy a list of instrumental snippets with a mix of Hip Hop, EDM, and
           Alternative Pop. You will hear influences from Wu-Tang Clan, The
           Weeknd, Daft Punk, and more. Downloads will not be available and if
@@ -120,11 +120,11 @@ export default function BeatsList() {
                 key={index}
                 className={
                   index % 2 === 0
-                    ? "w-full bg-base-100 px-8 py-4 shadow-lg"
-                    : "w-full bg-secondary px-8 py-4"
+                    ? "w-full bg-base-100 px-2 py-4 shadow-lg lg:px-8"
+                    : "w-full bg-secondary px-2 py-4 lg:px-8"
                 }
               >
-                <BeatsListItem
+                <BeatsItem
                   handleClick={handleAudio}
                   title={item.title}
                   audioFile={item.path}
@@ -137,7 +137,7 @@ export default function BeatsList() {
             ))}
         </div>
         {audioFile && songCover && title ? (
-          <div className="fixed bottom-0 z-10">
+          <div className="fixed z-10 bottom-0 w-full">
             <AudioPlayer
               title={title}
               songCover={songCover}
@@ -147,9 +147,9 @@ export default function BeatsList() {
             />
           </div>
         ) : (
-          <div className="fixed bottom-0 z-10">
+          <div className="fixed z-10 bottom-0 w-full">
             <AudioPlayer
-              title="Pick a beat"
+              title="Pick Beat"
               songCover="/cover/default.png"
               audioFile=""
               closeAudioPlayer={closeAudioPlayer}

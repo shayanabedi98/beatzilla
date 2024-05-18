@@ -14,7 +14,7 @@ export default function BackToTop() {
   });
 
   return (
-    <div className="fixed bottom-8 right-8 z-40 lg:bottom-16 lg:right-16">
+    <div className="fixed max-lg:hidden bottom-16 right-8 z-40 lg:bottom-32 lg:right-16">
       {windowY >= 300 && (
         <div
           className="cursor-pointer rounded-full border-[2px] border-secondary bg-primary p-1 text-2xl shadow-lg md:p-2 md:text-3xl"

@@ -23,6 +23,10 @@ export default function Navbar() {
     window.addEventListener("resize", handleShowMobileNav);
   });
 
+  const closeNavbar = () => {
+    setTimeout(() => setShowMobileNav(false), 1000);
+  };
+
   return (
     <nav className="absolute z-50 flex w-full flex-col bg-neutral-200">
       <div className="flex items-center justify-between px-4 py-2 lg:px-24">
@@ -42,7 +46,10 @@ export default function Navbar() {
           <NavbarItemDesktop content="Contact" location="/contact" />
         </div>
         <div className="lg:hidden">
-          <div onClick={() => setShowMobileNav(!showMobileNav)}>
+          <div
+            className="text-3xl"
+            onClick={() => setShowMobileNav(!showMobileNav)}
+          >
             {showMobileNav ? <IoCloseOutline /> : <RxHamburgerMenu />}
           </div>
         </div>
@@ -61,9 +68,21 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <NavbarItemMobile content="Home" location="/" />
-              <NavbarItemMobile content="Beats" location="/beats" />
-              <NavbarItemMobile content="Contact" location="/contact" />
+              <NavbarItemMobile
+                closeNavbar={closeNavbar}
+                content="Home"
+                location="/"
+              />
+              <NavbarItemMobile
+                closeNavbar={closeNavbar}
+                content="Beats"
+                location="/beats"
+              />
+              <NavbarItemMobile
+                closeNavbar={closeNavbar}
+                content="Contact"
+                location="/contact"
+              />
             </motion.div>
           </motion.div>
         )}

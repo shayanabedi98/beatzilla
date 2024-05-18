@@ -75,7 +75,6 @@ input[type="range"]::-webkit-slider-thumb {
 textarea {
   resize: none;
   height: 300px;
-
 }
 
 .spinning-zilla {
@@ -86,13 +85,33 @@ textarea {
   object-position: 0 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 350px) {
   input[name="time"] {
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
-    cursor: pointer;
-    width: 12rem;
+    width: 14rem;
   }
 }
 
+@media (min-width: 700px) {
+  input[name="time"] {
+    width: 20rem;
+  }
+}
+
+
+@media (min-width: 1024px) {
+
+  input[name="volume"] {
+    width: 4.5rem;
+  }
+}
+
+
+@media (min-width: 1180px) {
+  input[name="time"] {
+    width: 20rem;
+  }
+
+  input[name="volume"] {
+    width: 5.5rem;
+  }
+}

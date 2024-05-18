@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { FaRegPlayCircle } from "react-icons/fa";
 import spinningZilla from "@/assets/zillaNoBG.png";
+import { IoPlay } from "react-icons/io5";
 
 type Props = {
   title: string;
@@ -12,7 +12,7 @@ type Props = {
   playingFile: string;
 };
 
-export default function BeatsListItem({
+export default function BeatsItems({
   songCover,
   title,
   handleClick,
@@ -24,26 +24,17 @@ export default function BeatsListItem({
   return (
     <div className="flex w-full items-center justify-between text-primary">
       <Image
-        className="h-[100px] w-[100px] object-cover grayscale"
-        width={200}
-        height={200}
+        width={100}
+        height={100}
         src={songCover}
+        className="w-16 h-16 object-cover md:w-24 md:h-24 grayscale"
         alt=""
       />
-      <div className="grid w-2/3 grid-cols-3 place-items-center">
-        <p className="flex items-center gap-3 place-self-start text-2xl">
+      <div className="grid w-2/3 grid-cols-2 place-items-center sm:grid-cols-3">
+        <p className="flex items-center gap-3 text-lg max-md:text-center sm:place-self-start lg:text-2xl">
           {title}
-          {audioFile === playingFile && (
-            <div>
-              <Image
-                className="spinning-zilla w-8 rounded-full border-4  p-1"
-                src={spinningZilla}
-                alt=""
-              />
-            </div>
-          )}
         </p>
-        <p>{bpm} bpm</p>
+        <p className="max-sm:hidden">{bpm} bpm</p>
         <div>
           {genre.map((i, index) => {
             let displayGenre;
@@ -56,16 +47,23 @@ export default function BeatsListItem({
             } else {
               displayGenre = i;
             }
-
             return <p key={index}>{displayGenre}</p>;
           })}
         </div>
       </div>
-      <div className="cursor-pointer text-3xl">
-        <FaRegPlayCircle
-          onClick={() => handleClick(audioFile, title, songCover)}
-        />
-      </div>
+      {audioFile === playingFile ? (
+        <div>
+          <Image
+            className="spinning-zilla w-8 rounded-full border-2 p-[5px]"
+            src={spinningZilla}
+            alt=""
+          />
+        </div>
+      ) : (
+        <div className="flex cursor-pointer items-center justify-center rounded-full border-2 p-[5px] text-lg">
+          <IoPlay onClick={() => handleClick(audioFile, title, songCover)} />
+        </div>
+      )}
     </div>
   );
 }

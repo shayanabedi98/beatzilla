@@ -10,15 +10,15 @@ export default function AboutBeatZilla() {
       <div>
         <div className="z-0 flex flex-col items-center justify-center bg-primary">
           <Image
-            className="h-[900px] object-cover grayscale"
+            className="h-[1000px] xl:h-[600px] object-cover grayscale"
             src={studio}
             alt=""
           />
-          <div className="absolute flex w-full flex-col items-center justify-center">
-            <div className="flex h-72 w-[95%] items-center justify-center bg-primary">
+          <div className="absolute flex w-full flex-col xl:flex-row items-center justify-center">
+            <div className="flex h-96 w-96 items-center justify-center bg-primary max-sm:h-72 max-sm:w-[95%]">
               <Image className="w-3/4" src={logo} alt="" />
             </div>
-            <div className="flex h-[500px] w-[95%] flex-col items-center justify-center gap-5 bg-secondary p-4 text-center text-primary">
+            <div className="flex h-96 w-96 flex-col items-center justify-center gap-5 bg-secondary p-4 text-center text-primary max-sm:h-[500px] max-sm:w-[95%]">
               {/* <h3 className="text-2xl font-bold ">BeatZilla?</h3> */}
               <p className="text-lg">
                 Hi, I&apos;m Shayan, a music producer from the Greater Toronto

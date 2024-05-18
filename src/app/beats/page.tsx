@@ -15,7 +15,7 @@ export default function Beats() {
         uniqueClassName="beats-banner"
       />
       <BeatsList />
-      <Footer padding="pt-10 pb-36" />
+      <Footer padding="pt-10 py-36 max-lg:pb-48" />
     </main>
   );
 }

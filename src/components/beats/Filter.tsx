@@ -15,7 +15,7 @@ type Props = {
 
 export default function Filter({ handleFilter, isActive }: Props) {
   return (
-    <div className="flex gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       <FilterItem
         title="All"
         genre="all"

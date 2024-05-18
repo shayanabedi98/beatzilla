@@ -90,8 +90,8 @@ export default function FeaturedAudioPlayer({
   };
 
   return (
-    <div className="audio-player relative grid max-lg:grid-rows-2 lg:grid-cols-3 place-items-center lg:gap-44 bg-base-100 px-2 lg:px-16 py-4 text-primary">
-      <div className="flex w-full items-center gap-3 max-lg:justify-center">
+    <div className="audio-player relative grid max-lg:grid-rows-2 lg:grid-cols-3 place-items-center lg:gap-44 bg-base-100 px-2 lg:px-4 py-4 text-primary">
+      <div className="relative flex w-full items-center gap-3 max-lg:justify-center">
         <Image
           className="max-lg:absolute left-3 w-[50px] h-[50px] md:h-[75px] md:w-[75px] border-[2px] border-secondary object-cover shadow-lg grayscale"
           width={200}
@@ -120,7 +120,7 @@ export default function FeaturedAudioPlayer({
             <BsFillRewindFill />
           </button>
           <button
-            className={`text-3xl ${emptyFile ? "text-neutral-400" : ""}`}
+            className={`text-xl ${emptyFile ? "text-neutral-400" : ""}`}
             onClick={toggleAudio}
           >
             {!isPlaying && !emptyFile ? (
